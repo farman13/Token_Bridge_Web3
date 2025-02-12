@@ -17,8 +17,10 @@ import {
   QueryClientProvider,
   QueryClient,
 } from "@tanstack/react-query";
-import Dashboard from './components/Dashboard';
-import Background from './components/Backgorund';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './components/Home';
+import LockTokens from './components/LockTokens';
+import ClaimWTokens from './components/ClaimWTokens';
 
 const config = getDefaultConfig({
   appName: 'Bridge',
@@ -34,8 +36,13 @@ const App = () => {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
-          <Background />
-          <Dashboard />
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/lockTokens' element={<LockTokens />} />
+              <Route path='/claimWTokens' element={<ClaimWTokens />} />
+            </Routes>
+          </BrowserRouter>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

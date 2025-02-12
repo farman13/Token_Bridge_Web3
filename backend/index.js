@@ -42,7 +42,7 @@ async function updateLastProcessedBlock(chain, blockNumber) {
 }
 
 async function storeLog(chain, txnHash, blockNumber, from, amount) {
-    const existingLog = await logModel.findOne({ txnHash });
+    const existingLog = await logModel.findOne({ transactionHash: txnHash });
     if (!existingLog) {
         await logModel.create({
             chain: chain,
