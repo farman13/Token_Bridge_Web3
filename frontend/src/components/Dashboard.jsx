@@ -6,10 +6,9 @@ import { TokenAbi } from '../ABI/TokenAbi.json'
 import { ApeChainBridgeAbi } from '../ABI/ApechainBridge.json'
 import { WTokenAbi } from '../ABI/WTokenAbi.json'
 import { parseUnits } from "viem";
-require('dotenv').config();
 
 const Dashboard = () => {
-    console.log(process.env.ETH_BRIDGE_ADDRESS);
+
     const lockTokenRef = useRef();
     const withdrawTokenRef = useRef();
     const burnedTokenRef = useRef();
