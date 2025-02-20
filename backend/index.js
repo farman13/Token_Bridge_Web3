@@ -140,9 +140,9 @@ async function processPendingTransactions() {
     for (const log of pendingLogs) {
         try {
             if (log.chain == "ethereum")
-                await sendEthTxn(log.from, log.amount);
-            else if (log.chain == "apeChain")
                 await sendApeTxn(log.from, log.amount);
+            else if (log.chain == "apeChain")
+                await sendEthTxn(log.from, log.amount);
 
             await logModel.updateOne({ transactionHash: log.transactionHash }, { processed: true });
             console.log("processed txn :", log.transactionHash);
