@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useSwitchChain, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
+import { useSwitchChain, useWriteContract, usePublicClient } from "wagmi";
 import { EthBridgeAbi } from '../ABI/EthBridgeAbi.json';
 import { TokenAbi } from '../ABI/TokenAbi.json'
 import { parseUnits } from "viem";
@@ -10,15 +10,16 @@ const LockTokens = () => {
     const lockTokenRef = useRef();
     const unlockTokenRef = useRef();
 
-    const { data: hash, writeContractAsync } = useWriteContract();
     const { switchChain } = useSwitchChain();
-    const { data: receipt } = useWaitForTransactionReceipt({ hash })
     const [lockedTokens, setlockedTokens] = useState(0);
+
+    const { writeContractAsync } = useWriteContract();
+    const publicClient = usePublicClient();
 
     async function switchToSepoliaNetwork() {
         try {
             switchChain({ chainId: 11155111 });
-            alert("Switched to Curtis network");
+            alert("Switched to Sepolia network");
         } catch (error) {
             console.error("Error switching network:", error);
         }
@@ -28,16 +29,17 @@ const LockTokens = () => {
         let amount = lockTokenRef.current.value;
         amount = parseUnits(amount, 18);
         try {
-            await writeContractAsync({
+            const approveTxnHash = await writeContractAsync({
                 abi: TokenAbi,
                 address: "0x5E3Dd28cF940B00638B639D23B36cB347E4b9767",
                 functionName: "approve",
                 args: ["0x081587A7a8fFb06172A0520C8bfbA1bCCA6a2Be1", amount]
             });
-        } catch (e) {
-            console.log("ERR:", e);
-        }
-        try {
+
+            console.log("Approval transaction sent:", approveTxnHash);
+            await publicClient.waitForTransactionReceipt({ hash: approveTxnHash });
+            console.log("Approval confirmed ✅");
+
             await writeContractAsync({
                 abi: EthBridgeAbi,
                 address: "0x081587A7a8fFb06172A0520C8bfbA1bCCA6a2Be1",

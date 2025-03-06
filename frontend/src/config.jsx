@@ -16,7 +16,7 @@ import {
     QueryClient,
 } from "@tanstack/react-query";
 
-...
+
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 const config = getDefaultConfig({
     appName: 'My RainbowKit App',
