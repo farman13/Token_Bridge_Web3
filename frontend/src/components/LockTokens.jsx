@@ -38,7 +38,7 @@ const LockTokens = () => {
 
             console.log("Approval transaction sent:", approveTxnHash);
             await publicClient.waitForTransactionReceipt({ hash: approveTxnHash });
-            console.log("Approval confirmed ✅");
+            console.log("Approval confirmed");
 
             await writeContractAsync({
                 abi: EthBridgeAbi,

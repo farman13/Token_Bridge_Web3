@@ -61,7 +61,7 @@ async function listenEthereum(provider) {
         const latestBlock = await provider.getBlockNumber();
         console.log(latestBlock);
 
-        let lastProcessedBlock = await getLastProcessedBlock("ethereum") || 7846916
+        let lastProcessedBlock = await getLastProcessedBlock("ethereum") || 8574458
         console.log("LP E :", lastProcessedBlock);
         const logs = await provider.getLogs({
             address: EthContractAddress,
@@ -72,9 +72,9 @@ async function listenEthereum(provider) {
 
         console.log("Ethereum logs:", logs.length);
 
-        if (logs.length > 0) {
-            await updateLastProcessedBlock("ethereum", latestBlock);
-        }
+        // if (logs.length > 0) {
+        await updateLastProcessedBlock("ethereum", latestBlock);
+        // }
 
         for (const log of logs) {
             const parsedLog = EthContractInterface.parseLog(log);
@@ -94,7 +94,7 @@ async function listenApechain(provider) {
 
     try {
         const latestBlock = await provider.getBlockNumber();
-        let lastProcessedBlock = await getLastProcessedBlock("apeChain") || 16398465;
+        let lastProcessedBlock = await getLastProcessedBlock("apeChain") || 19375335;
         const logs = await provider.getLogs({
             address: ApeContractAddress,
             fromBlock: lastProcessedBlock,
@@ -103,9 +103,9 @@ async function listenApechain(provider) {
         })
 
         console.log("apeChain logs :", logs.length);
-        if (logs.length > 0) {
-            await updateLastProcessedBlock("apeChain", latestBlock);
-        }
+        // if (logs.length > 0) {
+        await updateLastProcessedBlock("apeChain", latestBlock);
+        // }
 
         for (const log of logs) {  // Process logs sequentially , it supports await inside loop
             const parsedLog = ApeContractInterface.parseLog(log);
