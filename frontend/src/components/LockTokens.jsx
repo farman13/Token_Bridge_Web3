@@ -4,6 +4,7 @@ import { EthBridgeAbi } from '../ABI/EthBridgeAbi.json';
 import { TokenAbi } from '../ABI/TokenAbi.json'
 import { parseUnits } from "viem";
 import Navbar from "./Navbar";
+import { Footer } from "./Footer";
 
 const LockTokens = () => {
 
@@ -86,6 +87,7 @@ const LockTokens = () => {
                     <button onClick={unlockTokens} className="bg-green-500 text-white px-4 py-2 w-full rounded hover:bg-green-700 transition duration-300 cursor-pointer">Unlock</button>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

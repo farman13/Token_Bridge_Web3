@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import bgImg from "../assets/bg-token.png";
+import { Footer } from "./Footer";
 
 const Home = () => {
     return (
@@ -44,6 +45,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

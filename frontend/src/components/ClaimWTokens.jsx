@@ -4,6 +4,7 @@ import { ApeChainBridgeAbi } from '../ABI/ApechainBridge.json'
 import { WTokenAbi } from '../ABI/WTokenAbi.json'
 import { parseUnits } from "viem";
 import Navbar from "./Navbar";
+import { Footer } from "./Footer";
 
 const ClaimWTokens = () => {
 
@@ -82,6 +83,7 @@ const ClaimWTokens = () => {
                     <button onClick={burnedToken} className="bg-red-500 text-white px-4 py-2 w-full rounded hover:bg-red-700 transition duration-300 cursor-pointer">Burn</button>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
