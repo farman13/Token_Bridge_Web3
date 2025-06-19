@@ -1,41 +1,51 @@
-import Background from "./Background";
 import Navbar from "./Navbar";
+import bgImg from "../assets/bg-token.png";
 
 const Home = () => {
     return (
-        <>
-            <div>
+        <div
+            className="relative bg-cover bg-center min-h-screen w-full"
+            style={{ backgroundImage: `url(${bgImg})` }}
+        >
+            <div className="absolute inset-0 bg-black/60 z-0" />
+            <div className="relative z-10">
                 <Navbar />
-            </div>
-            <div className="relative z-20 min-h-screen flex flex-col items-start justify-center text-left px-12 py-8">
-                <h1 className="text-5xl font-extrabold text-white leading-tight mb-12 max-w-3xl">
-                    Bridge your ERC20 Tokens <br /> from <span className="text-blue-600">Sepolia Blockchain</span> <br /> to <span className="text-yellow-500">Curtis Blockchain!</span>
-                </h1>
 
-                <div className="text-white max-w-3xl space-y-8">
-                    <h2 className="text-4xl font-extrabold underline text-gray-700 ">How It Works</h2>
+                <div className="min-h-screen flex flex-col justify-center px-8 sm:px-16 md:px-24 py-10 text-white">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight max-w-4xl mb-10">
+                        BRIDGE YOUR ERC20 TOKENS <br />
+                        FROM <span className="text-blue-400">SEPOLIA BlOCKCHAIN</span> <br />
+                        TO <span className="text-yellow-400">CURTIS BLOCKCHAIN!</span>
+                    </h1>
 
-                    <p className="text-xl leading-relaxed mb-6 font-extrabold">
-                        Users can lock their ERC20 tokens on Sepolia (Ethereum), which mints an equivalent amount of W-Tokens on Curtis (ApeChain). These W-Tokens represent the locked assets and can be used on Curtis.
-                    </p>
-                    <p className="text-xl leading-relaxed mb-6 font-extrabold">
-                        When users want to retrieve their original tokens, they must unlock them on Sepolia after completing the burn process on Curtis.
-                    </p>
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 sm:p-10 max-w-4xl space-y-6">
+                        <h2 className="text-3xl font-bold underline text-gray-200">How It Works</h2>
 
-                    <h3 className="text-2xl font-extrabold text-gray-700 underline mb-4">Steps:</h3>
-                    <ol className="list-decimal list-inside space-y-4 text-xl font-extrabold">
-                        <li>Lock your ERC20 tokens on Sepolia.</li>
-                        <li>Receive equivalent W-Tokens on Curtis.</li>
-                        <li>Use W-Tokens on Curtis as needed.</li>
-                        <li>Burn W-Tokens on Curtis when you want to retrieve your original tokens.</li>
-                        <li>Unlock your original tokens on Sepolia.</li>
-                    </ol>
-                    <p className="font-extrabold text-lg text-purple-500 mt-7">This process ensures the secure transfer and usage of tokens across different blockchains.</p>
+                        <p className="text-lg text-gray-100 leading-relaxed font-medium">
+                            Users can lock their ERC20 tokens on Sepolia (Ethereum), minting equivalent W-Tokens on Curtis (ApeChain). These tokens represent the locked assets and can be used within Curtis.
+                        </p>
+
+                        <p className="text-lg text-gray-100 leading-relaxed font-medium">
+                            To retrieve original tokens, users must first burn their W-Tokens on Curtis, then unlock the originals on Sepolia.
+                        </p>
+
+                        <h3 className="text-2xl font-semibold text-gray-200 underline">Steps:</h3>
+                        <ol className="list-decimal list-inside space-y-2 text-gray-100 text-base font-medium">
+                            <li>Lock your ERC20 tokens on Sepolia.</li>
+                            <li>Receive equivalent W-Tokens on Curtis.</li>
+                            <li>Use W-Tokens on Curtis.</li>
+                            <li>Burn W-Tokens when done.</li>
+                            <li>Unlock your tokens on Sepolia.</li>
+                        </ol>
+
+                        <p className="text-purple-400 font-semibold text-base mt-4">
+                            This process ensures secure and seamless cross-chain token transfers.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <Background />
-        </>
+        </div>
     );
-}
+};
 
 export default Home;

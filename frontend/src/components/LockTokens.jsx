@@ -73,15 +73,15 @@ const LockTokens = () => {
         <>
             <Navbar />
             <div className="flex justify-center items-center min-h-screen bg-gray-100">
-                <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-                    <p className="text-2xl font-semibold mb-4 text-center text-red-900">Switch to Sepolia Network before proceeding</p>
+                <div className="w-full max-w-md p-6 m-4 bg-white rounded-lg shadow-md shadow-black">
+                    <p className="text-xl font-semibold mb-4 text-center text-red-900">SWITCH TO SEPOLIA NETWORK BEFORE PROCEEDING</p>
                     <button onClick={switchToSepoliaNetwork} className="bg-yellow-500 text-white px-4 py-2 w-full rounded hover:bg-yellow-600 transition duration-300 mb-4 cursor-pointer">Switch Network</button>
 
-                    <p className="text-2xl font-semibold mb-4 text-center">Lock Your Tokens and get W-token on ApeChain</p>
+                    <p className="text-xl font-semibold mb-4 text-center text-gray-700">LOCK YOUR TOKENS AND GET W-TOKEN ON CURTIS</p>
                     <input type="text" placeholder="Enter amount" ref={lockTokenRef} className="border p-2 w-full mb-4 rounded" />
                     <button onClick={lockTokens} className="bg-blue-500 text-white px-4 py-2 w-full rounded hover:bg-blue-700 transition duration-300 cursor-pointer">Lock</button>
 
-                    <p className="mt-6 text-2xl font-semibold mb-4 text-center">Unlock your tokens (note: please burn W-Token before unlocking)</p>
+                    <p className="mt-6 text-xl font-semibold mb-4 text-center text-gray-700">UNLOCK YOUR TOKENS (NOTE: PLEASE BURN W-TOKEN BEFORE UNLOCKING)</p>
                     <input type="text" placeholder="Enter amount" ref={unlockTokenRef} className="border p-2 w-full mb-4 rounded" />
                     <button onClick={unlockTokens} className="bg-green-500 text-white px-4 py-2 w-full rounded hover:bg-green-700 transition duration-300 cursor-pointer">Unlock</button>
                 </div>

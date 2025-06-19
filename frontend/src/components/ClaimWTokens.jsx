@@ -69,15 +69,15 @@ const ClaimWTokens = () => {
         <>
             <Navbar />
             <div className="flex justify-center items-center min-h-screen bg-gray-100">
-                <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-                    <p className="text-2xl font-semibold mb-4 text-center text-red-900">Switch to Curtis Network before proceeding</p>
+                <div className="w-full max-w-md p-6 m-4 bg-white rounded-lg shadow-md shadow-black">
+                    <p className="text-xl font-semibold mb-4 text-center text-red-900">SWITCH TO CURTIS NETWORK BEFORE PROCEEDING</p>
                     <button onClick={switchToCurtisNetwork} className="bg-yellow-500 text-white px-4 py-2 w-full rounded hover:bg-yellow-600 transition duration-300 mb-4 cursor-pointer">Switch Network</button>
 
-                    <p className="text-2xl font-semibold mb-4 text-center">Withdraw Your W-INR in ApeChain</p>
+                    <p className="text-xl font-semibold mb-4 text-center text-gray-700">WITHDRAW YOUR W-TOKEN ON CURTIS</p>
                     <input type="text" placeholder="Enter amount" ref={withdrawTokenRef} className="border p-2 w-full mb-4 rounded" />
                     <button onClick={withdrawToken} className="bg-blue-500 text-white px-4 py-2 w-full rounded hover:bg-blue-700 transition duration-300 cursor-pointer">Withdraw</button>
 
-                    <p className="mt-6 text-2xl font-semibold mb-4 text-center">Burn Your W-Tokens to unlock original tokens on Sepolia</p>
+                    <p className="mt-6 text-xl font-semibold mb-4 text-center text-gray-700">BURN YOUR W-TOKENS TO UNLOCK ORIGINAL TOKENS ON SEPOLIA</p>
                     <input type="text" placeholder="Enter amount" ref={burnedTokenRef} className="border p-2 w-full mb-4 rounded" />
                     <button onClick={burnedToken} className="bg-red-500 text-white px-4 py-2 w-full rounded hover:bg-red-700 transition duration-300 cursor-pointer">Burn</button>
                 </div>
