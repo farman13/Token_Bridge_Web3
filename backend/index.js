@@ -61,7 +61,7 @@ async function listenEthereum(provider) {
         const latestBlock = await provider.getBlockNumber();
         console.log(latestBlock);
 
-        let lastProcessedBlock = await getLastProcessedBlock("ethereum") || 8574458
+        let lastProcessedBlock = await getLastProcessedBlock("ethereum") || 8762284
         console.log("LP E :", lastProcessedBlock);
         const logs = await provider.getLogs({
             address: EthContractAddress,
@@ -94,7 +94,7 @@ async function listenApechain(provider) {
 
     try {
         const latestBlock = await provider.getBlockNumber();
-        let lastProcessedBlock = await getLastProcessedBlock("apeChain") || 19375335;
+        let lastProcessedBlock = await getLastProcessedBlock("apeChain") || 24477493;
         const logs = await provider.getLogs({
             address: ApeContractAddress,
             fromBlock: lastProcessedBlock,
